@@ -13,7 +13,7 @@ public class WeatherAPIScript : MonoBehaviour
     void Start()
     {
 
-    // wait a couple seconds to start and then refresh every 900 seconds
+    // wait a couple seconds to start and then refresh every 600 seconds
 
        InvokeRepeating("GetDataFromWeb", 2f, 600f);
    }
