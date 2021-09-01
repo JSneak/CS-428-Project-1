@@ -20,7 +20,7 @@ public class EightBallScript : MonoBehaviour
     void keepTrackOfPosition()
     {
         Debug.Log(":\nReceived: " + KnickKnackObject.transform.rotation.x);
-        if(KnickKnackObject.transform.rotation.x)
+
         Magic8TextObject.GetComponent<TextMeshPro>().text = "Wow";
     }
 
