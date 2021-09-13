@@ -10,11 +10,14 @@ public class EightBallScript : MonoBehaviour
     public GameObject Magic8TextObject;
     public GameObject KnickKnackObject;
 
+    private AudioSource source;
+
     public bool hasBeenFlipped;
 
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         Magic8TextObject.GetComponent<TextMeshPro>().text = "Sitting";
         hasBeenFlipped = false;
         InvokeRepeating("keepTrackOfPosition", 1f, 1f);
@@ -35,10 +38,10 @@ public class EightBallScript : MonoBehaviour
             /* Cube is in sitting position */
             if(hasBeenFlipped == true)
             {
-                /* Generate a new word */
+                /* Choose a random classic saying */
 
                 /* Play a sound effect */
-
+                source.Play();
                 /* Set hasBeenFlipped to false */
                 hasBeenFlipped = false;
 
