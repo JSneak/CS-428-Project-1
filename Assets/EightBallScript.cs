@@ -3,25 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class EightBallScript : MonoBehaviour
 {
 
     public GameObject Magic8TextObject;
     public GameObject KnickKnackObject;
 
+    public bool hasBeenFlipped;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        InvokeRepeating("keepTrackOfPosition", 2f, 1f);
+        Magic8TextObject.GetComponent<TextMeshPro>().text = "Sitting";
+        hasBeenFlipped = false;
+        InvokeRepeating("keepTrackOfPosition", 1f, 1f);
 
     }
 
     void keepTrackOfPosition()
     {
-        Debug.Log(":\nReceived: " + KnickKnackObject.transform.rotation.x);
+        var xPos = UnityEditor.TransformUtils.GetInspectorRotation(KnickKnackObject.transform).x;
+        Debug.Log(":\nReceived: " + xPos);
 
-        Magic8TextObject.GetComponent<TextMeshPro>().text = "Wow";
+        /* If Rotation of X is between -20 to 0 or 0 to 20, then it is sitting */
+
+        /* If Rotation of X is between 170 to 180 or -180 to -170 */
+
+        if( (xPos < 20 && xPos > 0) || (xPos > -20 && xPos < 0 ) ) 
+        {
+            /* Cube is in sitting position */
+            if(hasBeenFlipped == true)
+            {
+                /* Generate a new word */
+
+                /* Play a sound effect */
+
+                /* Set hasBeenFlipped to false */
+                hasBeenFlipped = false;
+
+                /* Debug Statement */
+                Magic8TextObject.GetComponent<TextMeshPro>().text = "Unflipped";
+            }
+        }
+
+        if ((xPos < 180 && xPos > 170) || (xPos > -180 && xPos < -170))
+        {
+            /* Cube is upside down */
+            hasBeenFlipped = true;
+
+            /* Debug Statement */
+            Magic8TextObject.GetComponent<TextMeshPro>().text = "Flipped";
+        }
+
     }
 
     // Update is called once per frame
