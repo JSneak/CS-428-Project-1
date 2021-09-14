@@ -30,6 +30,7 @@ public class EightBallScriptCube2 : MonoBehaviour
     void keepTrackOfPosition()
     {
         var xPos = getEditorNumbers();
+        Debug.Log(":\nReceived cube 2 x: " + xPos);
         //var xPos = UnityEditor.TransformUtils.GetInspectorRotation(KnickKnackObject.transform).x;
         //Debug.Log(":\nReceived: " + xPos);
 
@@ -37,7 +38,7 @@ public class EightBallScriptCube2 : MonoBehaviour
 
         /* If Rotation of X is between 170 to 180 or -180 to -170 */
 
-        if ((xPos < 20 && xPos > 0) || (xPos > -20 && xPos < 0))
+        if ((xPos < 30 && xPos > 0) || (xPos > -30 && xPos < 0))
         {
             /* Cube is in sitting position */
             if (hasBeenFlipped == true)
@@ -56,7 +57,7 @@ public class EightBallScriptCube2 : MonoBehaviour
             }
         }
 
-        if ((xPos < 180 && xPos > 170) || (xPos > -180 && xPos < -170))
+        if ((xPos < 180 && xPos > 160) || (xPos > -180 && xPos < -160))
         {
             /* Cube is upside down */
             hasBeenFlipped = true;
@@ -107,8 +108,8 @@ public class EightBallScriptCube2 : MonoBehaviour
             z = angle.z - 360f;
         }
 
-        Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
-        return Mathf.Round(x);
+        // Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        return x;
     }
 
     // Update is called once per frame
