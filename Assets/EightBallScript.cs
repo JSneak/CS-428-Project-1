@@ -14,11 +14,14 @@ public class EightBallScript : MonoBehaviour
 
     public bool hasBeenFlipped;
 
+    public string[] eightBallQuotes = new string[] { "It is Certain", "It is decidely so", "Without a doubt", "Reply hazy, try again", "Ask again later", "Don't count on it", "My reply is no", "Very doubtful", "Cannot predict now", "Yes", "Signs point to yes" };
+
     // Start is called before the first frame update
     void Start()
     {
+        
         source = GetComponent<AudioSource>();
-        Magic8TextObject.GetComponent<TextMeshPro>().text = "Sitting";
+        Magic8TextObject.GetComponent<TextMeshPro>().text = "Flip Me";
         hasBeenFlipped = false;
         InvokeRepeating("keepTrackOfPosition", 1f, 1f);
 
@@ -27,7 +30,7 @@ public class EightBallScript : MonoBehaviour
     void keepTrackOfPosition()
     {
         var xPos = UnityEditor.TransformUtils.GetInspectorRotation(KnickKnackObject.transform).x;
-        Debug.Log(":\nReceived: " + xPos);
+        //Debug.Log(":\nReceived: " + xPos);
 
         /* If Rotation of X is between -20 to 0 or 0 to 20, then it is sitting */
 
@@ -39,6 +42,7 @@ public class EightBallScript : MonoBehaviour
             if(hasBeenFlipped == true)
             {
                 /* Choose a random classic saying */
+                int index = Random.Range(0, eightBallQuotes.Length);
 
                 /* Play a sound effect */
                 source.Play();
@@ -46,7 +50,8 @@ public class EightBallScript : MonoBehaviour
                 hasBeenFlipped = false;
 
                 /* Debug Statement */
-                Magic8TextObject.GetComponent<TextMeshPro>().text = "Unflipped";
+                //Debug.Log(":\nQuote Position: " + index);
+                Magic8TextObject.GetComponent<TextMeshPro>().text = eightBallQuotes[index];
             }
         }
 
@@ -56,7 +61,7 @@ public class EightBallScript : MonoBehaviour
             hasBeenFlipped = true;
 
             /* Debug Statement */
-            Magic8TextObject.GetComponent<TextMeshPro>().text = "Flipped";
+            //Magic8TextObject.GetComponent<TextMeshPro>().text = "Flipped";
         }
 
     }
