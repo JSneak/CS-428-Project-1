@@ -14,7 +14,7 @@ public class EightBallScript : MonoBehaviour
 
     public bool hasBeenFlipped;
 
-    public string[] eightBallQuotes = new string[] { "It is Certain", "It is decidely so", "Without a doubt", "Reply hazy, try again", "Ask again later", "Don't count on it", "My reply is no", "Very doubtful", "Cannot predict now", "Yes", "Signs point to yes" };
+    public string[] eightBallQuotes = new string[] { "It is Certain", "It is decidely so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes.", "Most likely", "Outlook good", "Reply hazy, try again", "Ask again later", "Better not tell you now", "Don't count on it", "My reply is no", "Very doubtful", "Cannot predict now", "Concentrate and ask again", "Yes", "Signs point to yes", "My sources say no","Outlook not so good", "Very doubtful" };
 
     // Start is called before the first frame update
     void Start()
