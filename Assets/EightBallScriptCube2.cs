@@ -14,7 +14,7 @@ public class EightBallScriptCube2 : MonoBehaviour
 
     public bool hasBeenFlipped;
 
-    public string[] eightBallQuotes = new string[] { "What did you just say?", "That's epic", "👍", "👎", "uuhhhh", "The money is calling", "Something bad is going to happen", "The future looks grim", "Sometimes I get it I don't even want it", "idk man", "it's a hard no" };
+    public string[] eightBallQuotes = new string[] { "What did you just say?", "That's epic", "👍", "👎", "uuhhhh", "The money is calling", "Something bad is going to happen", "The future looks grim", "Get that dough", "idk man", "it's a hard no" };
 
     // Start is called before the first frame update
     void Start()
