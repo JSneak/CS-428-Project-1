@@ -4,6 +4,7 @@
 <h3>How to build the project</h3>
 <li>You'll need a Vuforia developer key which can be found: [Vuforia Developer Portal](https://developer.vuforia.com/) <br>
 <li>You'll also need an OpenWeather API key: [OpenWeather Website](https://openweathermap.org/) <br>
+<li>Also make sure to physically build the 2 cubes before as well <br.
 
 <h3>How to run the project</h3>
 You can press play in the unity editor in order to play.
